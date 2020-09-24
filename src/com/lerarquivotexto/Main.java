@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         /* Etapa 1: Leitura simples com File e Scanner
 
-        File file = new File("E:\\Programação\\MeusProjetos\\LerArquivoTextoEm Java\\Arquivo Texto para ser Lido na Aplicação.txt");
+        File file = new File("E:\\Programação\\MeusProjetos\\Ler-arquivo-texto-em-Java\\Arquivo Texto para ser Lido na Aplicação.txt");
         Scanner sc = null;
         try {
             sc = new Scanner(file);
@@ -27,7 +27,7 @@ public class Main {
 
         /*Etapa 2: FileReader e BufferedReader com controle manual
 
-        String path = "E:\\Programação\\MeusProjetos\\LerArquivoTextoEm Java\\Arquivo Texto para ser Lido na Aplicação.txt";
+        String path = "E:\\Programação\\MeusProjetos\\Ler-arquivo-texto-em-Java\\Arquivo Texto para ser Lido na Aplicação.txt";
         FileReader fr = null;
         BufferedReader br = null; //gerencia a memória usada para leitura, vai tratar a leitura de forma mais otimizada e mais rápida
 
@@ -57,7 +57,7 @@ public class Main {
         */
 
         //Etapa 3: Usando bloco 'try with resources'
-        String path = "E:\\Programação\\MeusProjetos\\LerArquivoTextoEm Java\\Arquivo Texto para ser Lido na Aplicação.txt";
+        String path = "E:\\Programação\\MeusProjetos\\Ler-arquivo-texto-em-Java\\Arquivo Texto para ser Lido na Aplicação.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
             String line = br.readLine();
