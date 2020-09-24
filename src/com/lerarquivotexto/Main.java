@@ -1,9 +1,13 @@
 package com.lerarquivotexto;
 
+import com.entities.Product;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -56,7 +60,7 @@ public class Main {
         }
         */
 
-        //Etapa 3: Usando bloco 'try with resources'
+        /*Etapa 3: Usando bloco 'try with resources'
         String path = "E:\\Programação\\MeusProjetos\\Ler-arquivo-texto-em-Java\\Arquivo Texto para ser Lido na Aplicação.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
@@ -73,6 +77,36 @@ public class Main {
          * automaticamente assim que sair do bloco Try.
         */
 
+        // Instanciar Objetos com o Arquivo de Texto
+        String path = "E:\\Programação\\MeusProjetos\\Ler-arquivo-texto-em-Java\\Arquivo Texto para ser Lido na Aplicação.txt";
+
+        List <Product> list = new ArrayList<Product>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+
+            String line = br.readLine(); // esata primeira Linha no arquivo de Texto é a identificação do que é cada campo, por isso é ignorada
+            line = br.readLine();
+            while (line != null){
+
+                String[] vector = line.split(",");
+                String name = vector[0];
+                Double price = Double.parseDouble(vector[1]);
+                Integer qte = Integer.parseInt(vector[2]);
+
+                Product prod = new Product(name, price, qte);
+                list.add(prod);
+
+
+                line = br.readLine();
+            }
+            System.out.println("Products: ");
+            for (Product p: list) {
+                System.out.println(p);
+            }
+        }
+        catch (IOException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
 
 
 
